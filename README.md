@@ -1,2 +1,3 @@
-# ghost-joelma-locales
-Joelma theme for ghost with translations. https://ghost.org/themes/joelma/
+# Ghost Joelma Locales
+
+Joelma theme for ghost with translations. <https://ghost.org/themes/joelma/>
