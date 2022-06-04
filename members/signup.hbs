@@ -29,40 +29,42 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    {{!-- Logged in, not paying: Check out --}}
-                    <div class="checkout-form text-center">
-                        <div class="checkout-box row">
-                            <div class="col-md-4 ml-auto">
-                                <div class="checkout-plan">
-                                    <h3>{{t "Monthly"}}</h3>
-                                    <div class="pricing"><span>$</span><strong>{{@price.monthly}}</strong> / {{t "month"}}</div>
-                                    <div class="checkout-plan-content">
-                                        <ul>
-                                            <li><i class="fas fa-check"></i>{{t "Full access to all private posts"}}</li>
-                                            <li><i class="fas fa-check"></i>{{t "Regular updates with new content"}}</li>
-                                            <li><i class="fas fa-check"></i>{{t "Support independent publishing"}}</li>
-                                            <li><i class="fas fa-check"></i>{{t "Simple, secure card payment"}}</li>
-                                        </ul>
-                                        <a class="btn btn-blue" href="javascript:void(0)" data-members-plan="Monthly">{{t "Choose this plan"}}</a>
+        {{#get "tiers" include="monthly_price,yearly_price,benefits" limit="all" as |tiers|}}    
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        {{!-- Logged in, not paying: Check out --}}
+                        <div class="checkout-form text-center">
+                            <div class="checkout-box row">
+                                <div class="col-md-4 ml-auto">
+                                    <div class="checkout-plan">
+                                        <h3>{{t "Monthly"}}</h3>
+                                        <div class="pricing"><span>$</span><strong>{{monthly_price}}</strong> / {{t "month"}}</div>
+                                        <div class="checkout-plan-content">
+                                            <ul>
+                                                <li><i class="fas fa-check"></i>{{t "Full access to all private posts"}}</li>
+                                                <li><i class="fas fa-check"></i>{{t "Regular updates with new content"}}</li>
+                                                <li><i class="fas fa-check"></i>{{t "Support independent publishing"}}</li>
+                                                <li><i class="fas fa-check"></i>{{t "Simple, secure card payment"}}</li>
+                                            </ul>
+                                            <a class="btn btn-blue" href="javascript:void(0)" data-members-plan="Monthly">{{t "Choose this plan"}}</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4 mr-auto">
-                                <div class="checkout-plan">
-                                    <h3>Yearly</h3>
-                                    <div class="pricing"><span>$</span><strong>{{@price.yearly}}</strong> / {{t "year"}}</div>
-                                    <div class="checkout-plan-content">
-                                        <ul>
-                                            <li><i class="fas fa-check"></i>{{t "Full access to all private posts"}}</li>
-                                            <li><i class="fas fa-check"></i>{{t "Regular updates with new content"}}</li>
-                                            <li><i class="fas fa-check"></i>{{t "Support independent publishing"}}</li>
-                                            <li><i class="fas fa-check"></i>{{t "Simple, secure card payment"}}</li>
-                                            <li><i class="fas fa-check"></i>{{t "One easy payment instead of 12!"}}</li>
-                                        </ul>
-                                        <a class="btn btn-blue" href="javascript:void(0)" data-members-plan="Yearly">{{t "Choose this plan"}}</a>
+                                <div class="col-md-4 mr-auto">
+                                    <div class="checkout-plan">
+                                        <h3>Yearly</h3>
+                                        <div class="pricing"><span>$</span><strong>{{yearly_price}}</strong> / {{t "year"}}</div>
+                                        <div class="checkout-plan-content">
+                                            <ul>
+                                                <li><i class="fas fa-check"></i>{{t "Full access to all private posts"}}</li>
+                                                <li><i class="fas fa-check"></i>{{t "Regular updates with new content"}}</li>
+                                                <li><i class="fas fa-check"></i>{{t "Support independent publishing"}}</li>
+                                                <li><i class="fas fa-check"></i>{{t "Simple, secure card payment"}}</li>
+                                                <li><i class="fas fa-check"></i>{{t "One easy payment instead of 12!"}}</li>
+                                            </ul>
+                                            <a class="btn btn-blue" href="javascript:void(0)" data-members-plan="Yearly">{{t "Choose this plan"}}</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +72,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+        {{/get}}
 
     {{else}}
 
